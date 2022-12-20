@@ -5,7 +5,7 @@
     - name: Import VPC Variables
       ansible.builtin.include_vars:
               dir: vars
-              files_matching: vpc_setup.yml
+              files_matching: vpc_setup.yaml
 
     - name: Create vprofile VPC
       ec2_vpc_net:
