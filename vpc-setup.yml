@@ -95,3 +95,12 @@
         resource_tags:
           Name: vprofile-privsub3
       register: privsub3_out
+
+    - name: Internet Gateway 3 in Zone 3
+      ec2_vpc_igw:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{region}}"
+        state: "{{state}}"
+        resource_tags:
+          Name: vprofile_igw
+        register: igw_out
