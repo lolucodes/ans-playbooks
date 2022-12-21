@@ -27,21 +27,8 @@
 
 
 
-      - name: example using security group rule descriptions
-        amazon.aws.ec2_security_group:
-          name: Bastion-host-sg1
-          description: sg with rule descriptions
-          vpc_id: "{{vpcid}}"
-          region: "{{region}}"
-          rules:
-            - proto: tcp
-              ports:
-              - 80
-              cidr_ip: 0.0.0.0/0
-              rule_desc: allow all on port 80
-
       - name: Create Sec grp for bastion host
-        amazon.aws.ec2_security_group:
+        ec2_group:
           name: Bastion-host-sg
           description: Allow port 22 from everywhere and all port withing sg
           region: "{{region}}"
@@ -52,7 +39,6 @@
               to_port: 22
               cidr_ip: "{{MYIP}}"
         register: BastionSG_out
-
 
 
 
