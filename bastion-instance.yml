@@ -26,7 +26,7 @@
         when:   key_out.changed
 
 
-     -  name:   Create Sec Grp for bastion host
+      - name:   Create Sec Grp for bastion host
         ec2_group:
             name:   Bastion-host-sg
             description: Allow port 22 from everywhere and all port within sg
@@ -39,7 +39,7 @@
                 cidr_ip:    "{{MYIP}}"
             register: BastionSG_out
 
-     -  name:   Creating Bastion Host
+      - name:   Creating Bastion Host
         ec2:
             key_name:   vprofile-key
             region:     "{{region}}"
