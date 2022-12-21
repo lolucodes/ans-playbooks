@@ -27,7 +27,7 @@
 
 
       - name: Create Sec grp for bastion host
-        ec2_group:
+        amazon.aws.ec2_security_group:
           name: Bastion-host-sg
           description: Allow port 22 from everywhere and all port withing sg
           vpc_id: "{{vpcid}}"
